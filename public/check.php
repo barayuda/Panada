@@ -9,10 +9,11 @@
  */
 
 define('INDEX_FILE', basename(__FILE__));
-define('GEAR', '../panada/');
+define('APP', dirname(__FILE__) . '/../app/');
+define('GEAR', dirname(__DIR__).'/panada/');
 define('DS', DIRECTORY_SEPARATOR);
 define('THISPATH', dirname(__FILE__));
-require_once THISPATH . DS . 'config/main.php';
+require_once APP . DS . 'config/main.php';
 //require_once THISPATH . DS . '../panada' . DS . 'variable' . DS . 'version.php';
 ?>
 <!DOCTYPE html>
@@ -51,13 +52,13 @@ require_once THISPATH . DS . 'config/main.php';
         padding: 4px 8px;
         font-we
     }
-    td { 
-        width: 25%; 
+    td {
+        width: 25%;
     }
-    td+td{ 
+    td+td{
         width: 65%;
     }
-    td+td+td{ 
+    td+td+td{
         width: 10%;
     }
     .monospace {
@@ -75,7 +76,7 @@ require_once THISPATH . DS . 'config/main.php';
 
 </head>
 <body>
-    <h1 class="logo"><img alt="Logo" src="assets/img/logo.png" /></h1> 
+    <h1 class="logo"><img alt="Logo" src="assets/img/logo.png" /></h1>
     <h1>Installation Check</h1>
     <h2>Minimum Requirements</h2>
     <?php $failed = FALSE ?>
@@ -96,12 +97,12 @@ require_once THISPATH . DS . 'config/main.php';
                 <?php endif ?>
             </td>
         </tr>
-        
+
         <tr>
             <td>
                 System Directory
             </td>
-            
+
             <?php if (is_dir(THISPATH . DS . '../panada') AND is_file(THISPATH . DS . '../panada' . DS . 'Gear.php')): ?>
                 <td><span class="monospace"><?php echo THISPATH . DS . 'panada' ?></span></td>
                 <td><span class="pass">PASS</span></td>
@@ -109,15 +110,15 @@ require_once THISPATH . DS . 'config/main.php';
                 <td>&nbsp;</td>
                 <td><span class="fail">FAIL</span></td>
             <?php endif ?>
-            
+
         </tr>
-        
+
         <tr>
             <td>
                 Application Directory
             </td>
-            <?php if (is_dir(THISPATH . DS) AND is_file(THISPATH . DS . 'config' . DS . 'main.php')): ?>
-                <td><span class="monospace"><?php echo THISPATH . DS ?></td>
+            <?php if (is_dir(APP) AND is_file(APP . 'config' . DS . 'main.php')): ?>
+                <td><span class="monospace"><?php echo APP ?></td>
                 <td><span class="pass">PASS</span></td>
             <?php else: $failed = TRUE ?>
                 <td>&nbsp;</td>
@@ -125,17 +126,17 @@ require_once THISPATH . DS . 'config/main.php';
             <?php endif ?>
         </tr>
     </table>
-	
+
     <?php if ($failed === TRUE): ?>
         <p class="box fail">Panada may not work correctly with your environment</p>
     <?php else: ?>
         <p class="box pass">Your environment passed all requirements</p>
     <?php endif ?>
-    
+
     <h2>Optional</h2>
-    
+
     <h3>Database</h3>
-    
+
     <table>
         <tr>
             <td>
@@ -149,7 +150,7 @@ require_once THISPATH . DS . 'config/main.php';
                 <td><span class="fail">FAIL</span></td>
             <?php endif ?>
         </tr>
-        
+
         <tr>
             <td>
                 PostgreSQL
@@ -162,7 +163,7 @@ require_once THISPATH . DS . 'config/main.php';
                 <td><span class="fail">FAIL</span></td>
             <?php endif ?>
         </tr>
-        
+
         <tr>
             <td>SQLite</td>
             <?php if (function_exists('sqlite_open')): ?>
@@ -173,7 +174,7 @@ require_once THISPATH . DS . 'config/main.php';
                 <td><span class="fail">FAIL</span></td>
             <?php endif ?>
         </tr>
-        
+
         <tr>
             <td>MongoDB</td>
             <?php if (class_exists('Mongo')): ?>
@@ -185,9 +186,9 @@ require_once THISPATH . DS . 'config/main.php';
             <?php endif ?>
         </tr>
     </table>
-    
+
     <h3>Cache</h3>
-    
+
     <table>
         <tr>
             <td>APC</td>
@@ -199,7 +200,7 @@ require_once THISPATH . DS . 'config/main.php';
                 <td><span class="fail">FAIL</span></td>
             <?php endif ?>
         </tr>
-        
+
         <tr>
             <td>Memcache</td>
             <?php if (extension_loaded('memcache')): ?>
@@ -210,7 +211,7 @@ require_once THISPATH . DS . 'config/main.php';
                 <td><span class="fail">FAIL</span></td>
             <?php endif ?>
         </tr>
-        
+
         <tr>
             <td>Memcached</td>
             <?php if (extension_loaded('memcached')): ?>

@@ -1,9 +1,9 @@
 <?php
 
-return array(
-    
-    'default' => array(
-        'driver' => 'mysql',
+return [
+
+    'default' => [
+        'driver' => 'mysqli',
         'host' => 'localhost',
         'port' => 3306,
         'user' => 'root',
@@ -13,10 +13,10 @@ return array(
         'charset' => 'utf8',
         'collate' => 'utf8_general_ci',
         'persistent' => false,
-    ),
-    
+    ],
+
     /*
-    'postgre' => array(
+    'postgre' => [
         'driver' => 'pgsql',
         'host' => 'localhost',
         'port' => 5432,
@@ -27,9 +27,9 @@ return array(
         'charset' => 'utf8',
         'collate' => 'utf8_general_ci',
         'persistent' => false,
-    ),
-    
-    'sqlite' => array(
+    ],
+
+    'sqlite' => [
         'driver' => 'sqlite',
         'host' => '',
         'user' => '',
@@ -38,9 +38,9 @@ return array(
         'charset' => '',
         'collate' => '',
         'persistent' => false,
-    ),
-    
-    'mongodb' => array(
+    ],
+
+    'mongodb' => [
         'driver' => 'mongodb',
         'host' => 'localhost',
         'port' => 27017,
@@ -51,10 +51,10 @@ return array(
         'charset' => '',
         'collate' => '',
         'persistent' => false,
-        'options' => array(),
-    ),
-    
-    'cubrid' => array(
+        'options' => [],
+    ],
+
+    'cubrid' => [
         'driver' => 'cubrid',
         'host' => 'localhost',
         'user' => 'root',
@@ -66,7 +66,7 @@ return array(
         'collate' => 'utf8_general_ci',
         'persistent' => false,
         'autoCommit' => true,
-    ),
+    ],
     */
-    
-);
+
+];
